@@ -43,18 +43,16 @@ body {
 	margin-left:1px;
 	margin-right: 4px;
 	border-radius: 6px;
+	text-align:center;
+	font-size:110px;
+	font-weight:bold;
+	font-style:normal;
+	color: #ff0000;
 	
-	
-	
-
 }
- p {
 
- 	font-size: 90px;
- 	font-weight:bold;
- 	line-height:1px;
- 	margin-left:50px;
- 	text-align:center;
- 
- }
+#k1 {
+	background:#ffff00;
+	color: #ff00ff;
+}
 

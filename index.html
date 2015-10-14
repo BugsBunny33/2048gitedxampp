@@ -1,45 +1,43 @@
 <!DOCTYPE html>
 <html ng-app="App2048">
   <head>
-  	<link rel="stylesheet" type="text/css" href="style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
-    <script src="controller2048.js"></script>		
+  	<link rel="stylesheet" type="text/css" href="style.css">    	
   </head>
   
 
-  <body>
+  <body >
   	
   	<div class="game-container" ng-controller="Ctrl2048">
   		
   		<div class="red">
-  			<div id="k1"><p>2</p></div>
-  			<div id="k2"></div>
-  			<div id="k3"></div>
-  			<div id="k4"></div>
+  			<div id="k1">{{tablica.br1}}</div>
+  			<div id="k2">{{tablica.br2}}</div>
+  			<div id="k3">{{tablica.br3}}</div>
+  			<div id="k4">{{tablica.br4}}</div>
   	    </div>
   	    <div class="red">
-  			<div id="k5"></div>
-  			<div id="k6"></div>
-  			<div id="k7"></div>
-  			<div id="k8"></div>
+  			<div id="k5">{{tablica.br4}}</div>
+  			<div id="k6">{{tablica.br6}}</div>
+  			<div id="k7">{{tablica.br7}}</div>
+  			<div id="k8">{{tablica.br8}}</div>
   	    </div>
   	    <div class="red">
-  			<div id="k9"></div>
-  			<div id="k10"></div>
-  			<div id="k11"></div>
-  			<div id="k12"></div>
+  			<div id="k9">{{tablica.br9}}</div>
+  			<div id="k10">{{tablica.br10}}</div>
+  			<div id="k11">{{tablica.br11}}</div>
+  			<div id="k12">{{tablica.br12}}</div>
   	    </div>
   	    <div class="red">
-  			<div id="k13"></div>
-  			<div id="k14"></div>
-  			<div id="k15"></div>
-  			<div id="k16"></div>
+  			<div id="k13">{{tablica.br13}}</div>
+  			<div id="k14">{{tablica.br14}}</div>
+  			<div id="k15">{{tablica.br15}}</div>
+  			<div id="k16">{{tablica.br16}}</div>
   	    </div>
   		
   	</div>
-  	
-
-  
+  	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+    <script src="controller2048.js"></script>	
+    <script src="proba.js"></script> 
   </body> 
   	
 </html>
