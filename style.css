@@ -43,16 +43,27 @@ body {
 	margin-left:1px;
 	margin-right: 4px;
 	border-radius: 6px;
+	padding-top:22px;
 	text-align:center;
-	font-size:110px;
+	font-size:85px;
 	font-weight:bold;
 	font-style:normal;
 	color: #ff0000;
 	
 }
 
-#k1 {
+
+#k15 {
 	background:#ffff00;
 	color: #ff00ff;
+	font-size:75px;
+	padding-top:27px;
+}
+
+#k16 {
+	background:#ffff00;
+	color: #ff00ff;
+	font-size:65px;
+	padding-top:33px;
 }
 

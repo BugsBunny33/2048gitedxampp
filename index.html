@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html ng-app="App2048">
   <head>
-  	<link rel="stylesheet" type="text/css" href="style.css">    	
+  	<link rel="stylesheet" type="text/css" href="style.css"> 
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+    <script src="controller2048.js"></script>   	
   </head>
   
 
@@ -33,10 +36,10 @@
   			<div id="k15">{{tablica.br15}}</div>
   			<div id="k16">{{tablica.br16}}</div>
   	    </div>
+  	    <button ng-click="promeni()">promeni</button>
   		
   	</div>
-  	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
-    <script src="controller2048.js"></script>	
+  		
     <script src="proba.js"></script> 
   </body> 
   	
