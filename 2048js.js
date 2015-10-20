@@ -64,6 +64,33 @@ function merge(line){
 };
 
 
+function twentyEightyFour(grid_height, grid_width){
+	this.grid_height = grid_height;
+	this.grid_width  = grid_width;
+	this.Matrix = [[]];
+	
+	this.Reset = function () {
+		var i,j;
+		for(i=1; i <= this.grid_width; i++){
+			for(j=1; j <= this.grid_width; j++){
+				this.Matrix[i][j] = 0;
+			};
+		};
+		//this.newTile();
+	};
+	 
+	
+	
+	this.getGridHeight = function (){
+		return this.grid_height;
+	};
+	
+	this.getGridWidth = function (){
+		return this.grid_width;
+	};
+	
+};
+
 document.getElementById("k1").innerHTML = matrica.k1;
 document.getElementById("k2").innerHTML = matrica.k2;
 document.getElementById("k3").innerHTML = matrica.k3;
