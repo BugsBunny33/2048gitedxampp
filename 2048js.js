@@ -64,15 +64,16 @@ function merge(line){
 };
 
 
-function twentyEightyFour(grid_height, grid_width){
-	this.grid_height = grid_height;
-	this.grid_width  = grid_width;
-	this.Matrix = [[]];
+function twentyEightyFour(width, height){
+	this.grid_height = height;
+	this.grid_width  = width;
+	this.Matrix = {};
 	
 	this.Reset = function () {
 		var i,j;
-		for(i=1; i <= this.grid_width; i++){
-			for(j=1; j <= this.grid_width; j++){
+		for(i=0; i <= this.grid_height - 1; i++){
+			this.Matrix[i] = [];
+			for(j=0; j <= this.grid_width - 1; j++){
 				this.Matrix[i][j] = 0;
 			};
 		};
@@ -88,6 +89,33 @@ function twentyEightyFour(grid_height, grid_width){
 	this.getGridWidth = function (){
 		return this.grid_width;
 	};
+	
+	this.newTile = function(){
+		var oni_koji_su_0 = {};
+		var i,j,k=0;
+		for(i=0; i <= this.grid_height - 1; i++){
+			for(j=0; j <= this.grid_width - 1; j++){
+				if (this.Matrix[i][j] == 0){
+					oni_koji_su_0[k] = [i,j];
+					k++;
+				};
+			};
+		};
+		if (Object.keys(oni_koji_su_0) == 0) return "Game over";
+		var odabrani = oni_koji_su_0[Math.floor(Math.random() * Object.keys(oni_koji_su_0).length)];
+		var dva_i_cetiri = [2,2,2,2,2,2,2,2,2,4];
+		var row = odabrani[0], col = odabrani[1], koji = dva_i_cetiri[Math.floor(Math.random() * dva_i_cetiri.length)];
+		return [row, col, koji];
+		//this.setTile(row, col, koji);
+	};
+	
+	this.setTile = function(row, col, value){
+		this.Matrix[row][col] = value;
+	}
+	
+	this.getTile = function(row, col){
+		return this.Matrix[row][col];
+	}
 	
 };
 
