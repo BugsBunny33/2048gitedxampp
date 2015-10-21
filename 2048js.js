@@ -51,8 +51,9 @@ function twentyEightyFour(width, height){
 	this.grid_width  = width;
 	this.Matrix = {};
 	
-	 var starti = function(){
-		var UP = {}, DOWN = {}, LEFT = {}, RIGHT = {}, i; 
+	
+	this.startIndices = function(){
+		var UP = {}, DOWN = {}, LEFT = {}, RIGHT = {}, i;
 		for(i=0; i <= this.grid_width - 1; i++){
 			UP[i] = [0, i]; 
 			DOWN[i] = [this.grid_height - 1, i];	
@@ -61,9 +62,11 @@ function twentyEightyFour(width, height){
 			LEFT[i] = [i, 0]; 
 			RIGHT[i] = [i, this.grid_width - 1];	
 		};
-		return JSON.stringify([UP, DOWN, LEFT, RIGHT]);
+		//string = JSON.stringify(); 
+		return [UP, DOWN, LEFT, RIGHT];
 	};
-	this.startIndices = starti();
+	
+	
 	
 	
 	this.Reset = function () {
@@ -119,10 +122,29 @@ function twentyEightyFour(width, height){
 	};
 	
 	//Move all tiles in the given direction and add a new tile if any tiles moved.
-	this.move = function(){
+	this.move = function(direction){
 		var poredbeni = JSON.parse(JSON.stringify(this.Matrix));
 		var smestaj_nizova = [];
 		
+		switch(direction){
+		case "UP":
+			for(i=0; i <= this.grid_weight - 1; i++){
+				var trenutni_niz = [];
+				
+			}
+			
+			
+			break;
+		case "DOWN":
+		    break;
+		case "LEFT":
+			break;
+		case "RIGHT":
+			break;
+		default:
+			return "Greska";
+		break;
+		}
 	};
 	
 };

@@ -28,7 +28,7 @@ objekat.newTile();
 s=JSON.stringify(objekat.Matrix);
 */
 
-document.getElementById("pol1").innerHTML = objekat.startIndices;
+document.getElementById("pol1").innerHTML = objekat.startIndices()[0][0][0];
 //document.getElementById("pol2").innerHTML = objekat.;
 
 
