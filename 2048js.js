@@ -10,24 +10,6 @@ const OFFSETS = {
 	RIGHT:[0,-1],	
 };
 
-var matrica = {
-		k1:1,
-        k2:2,
-        k3:3,
-        k4:4,
-        k5:5,
-        k6:6,
-        k7:7,
-        k8:8,
-        k9:9,
-        k10:10,
-        k11:11,
-        k12:12,
-        k13:13,
-        k14:14,
-        k15:132,
-        k16:2048
-};
 
 //Helper function that merges a single row or column in 2048
 function merge(line){
@@ -42,7 +24,7 @@ function merge(line){
 		}		
 		i++;
 	}	
-	//make list with merged tiles
+	//make a list with merged tiles
 	i = 0;
 	while (i < linija.length - 1){
 		if (linija[i] == linija[i+1]) {
@@ -69,6 +51,21 @@ function twentyEightyFour(width, height){
 	this.grid_width  = width;
 	this.Matrix = {};
 	
+	 var starti = function(){
+		var UP = {}, DOWN = {}, LEFT = {}, RIGHT = {}, i; 
+		for(i=0; i <= this.grid_width - 1; i++){
+			UP[i] = [0, i]; 
+			DOWN[i] = [this.grid_height - 1, i];	
+		};
+		for(i=0; i <= this.grid_height - 1; i++){
+			LEFT[i] = [i, 0]; 
+			RIGHT[i] = [i, this.grid_width - 1];	
+		};
+		return JSON.stringify([UP, DOWN, LEFT, RIGHT]);
+	};
+	this.startIndices = starti();
+	
+	
 	this.Reset = function () {
 		var i,j;
 		for(i=0; i <= this.grid_height - 1; i++){
@@ -77,7 +74,7 @@ function twentyEightyFour(width, height){
 				this.Matrix[i][j] = 0;
 			};
 		};
-		//this.newTile();
+		this.newTile();
 	};
 	 
 	
@@ -90,9 +87,12 @@ function twentyEightyFour(width, height){
 		return this.grid_width;
 	};
 	
+	/*Create a new tile in a randomly selected empty square.  The tile should be 2 90% of the time and
+    4 10% of the time.*/
 	this.newTile = function(){
 		var oni_koji_su_0 = {};
 		var i,j,k=0;
+		
 		for(i=0; i <= this.grid_height - 1; i++){
 			for(j=0; j <= this.grid_width - 1; j++){
 				if (this.Matrix[i][j] == 0){
@@ -101,24 +101,33 @@ function twentyEightyFour(width, height){
 				};
 			};
 		};
+		//if there are no empty tiles
 		if (Object.keys(oni_koji_su_0) == 0) return "Game over";
+		//
 		var odabrani = oni_koji_su_0[Math.floor(Math.random() * Object.keys(oni_koji_su_0).length)];
 		var dva_i_cetiri = [2,2,2,2,2,2,2,2,2,4];
 		var row = odabrani[0], col = odabrani[1], koji = dva_i_cetiri[Math.floor(Math.random() * dva_i_cetiri.length)];
-		return [row, col, koji];
-		//this.setTile(row, col, koji);
+		this.setTile(row, col, koji);
 	};
-	
+	//sets tile to specified value
 	this.setTile = function(row, col, value){
 		this.Matrix[row][col] = value;
-	}
-	
+	};
+	//gets value of specified tile
 	this.getTile = function(row, col){
 		return this.Matrix[row][col];
-	}
+	};
+	
+	//Move all tiles in the given direction and add a new tile if any tiles moved.
+	this.move = function(){
+		var poredbeni = JSON.parse(JSON.stringify(this.Matrix));
+		var smestaj_nizova = [];
+		
+	};
 	
 };
 
+/*
 document.getElementById("k1").innerHTML = matrica.k1;
 document.getElementById("k2").innerHTML = matrica.k2;
 document.getElementById("k3").innerHTML = matrica.k3;
@@ -135,4 +144,4 @@ document.getElementById("k13").innerHTML = matrica.k13;
 document.getElementById("k14").innerHTML = matrica.k14;
 document.getElementById("k15").innerHTML = matrica.k15;
 document.getElementById("k16").innerHTML = matrica.k16;
-
+*/

@@ -17,16 +17,19 @@ var objekat = new twentyEightyFour(4,5);
 
 objekat.Reset();
 
-
+/*
 objekat.setTile(3,3,0);
 objekat.setTile(2,2,0);
 objekat.setTile(0,0,0);
+*/
+
+/*
 objekat.newTile();
-s=JSON.stringify(objekat.newTile())
+s=JSON.stringify(objekat.Matrix);
+*/
 
-
-document.getElementById("pol").innerHTML = s; 
-
+document.getElementById("pol1").innerHTML = objekat.startIndices;
+//document.getElementById("pol2").innerHTML = objekat.;
 
 
 
