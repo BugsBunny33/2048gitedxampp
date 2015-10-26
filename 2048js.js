@@ -67,8 +67,6 @@ function twentyEightyFour(width, height){
 	};
 	
 	
-	
-	
 	this.Reset = function () {
 		var i,j;
 		for(i=0; i <= this.grid_height - 1; i++){
@@ -120,22 +118,41 @@ function twentyEightyFour(width, height){
 	this.getTile = function(row, col){
 		return this.Matrix[row][col];
 	};
+	//returns Matrix in string, for debugging purpose
+	this.matrica = function(){
+		return JSON.stringify(this.Matrix);
+	};
 	
 	//Move all tiles in the given direction and add a new tile if any tiles moved.
 	this.move = function(direction){
 		var poredbeni = JSON.parse(JSON.stringify(this.Matrix));
 		var smestaj_nizova = [];
+		var startni = this.startIndices();
 		
 		switch(direction){
 		case "UP":
-			for(i=0; i <= this.grid_weight - 1; i++){
+			for(i=0; i <= this.grid_width - 1; i++){
 				var trenutni_niz = [];
-				
-			}
-			
-			
+				for(j=0; j <= this.grid_height - 1; j++){
+					trenutni_niz[j] = this.Matrix[j][i];					 
+				}
+				smestaj_nizova = merge(trenutni_niz);
+				for(j=0; j <= this.grid_height - 1; j++){
+					this.Matrix[j][i] = smestaj_nizova[j];
+				};			
+			} 						
 			break;
 		case "DOWN":
+		    for(i=0; i <= this.grid_width - 1; i++){
+				var trenutni_niz = [];
+				for(j=0; j <= this.grid_height - 1; j++){
+					trenutni_niz[j] = this.Matrix[j][i];					 
+				}
+				smestaj_nizova = merge(trenutni_niz);
+				for(j=0; j <= this.grid_height - 1; j++){
+					this.Matrix[j][i] = smestaj_nizova[j];
+				};			
+			}
 		    break;
 		case "LEFT":
 			break;
