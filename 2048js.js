@@ -127,60 +127,68 @@ function twentyEightyFour(width, height){
 	this.move = function(direction){
 		var poredbeni = JSON.parse(JSON.stringify(this.Matrix));
 		var smestaj_nizova = [];
-		var startni = this.startIndices();
+		var trenutni_niz = [];
+		var i,j = 0;
+		//var startni = this.startIndices();
 		
 		switch(direction){
 		case "UP":
-			for(i=0; i <= this.grid_width - 1; i++){
-				var trenutni_niz = [];
-				for(j=0; j <= this.grid_height - 1; j++){
+			for(i = 0; i <= this.grid_width - 1; i++){
+				trenutni_niz = [];
+				for(j = 0; j <= this.grid_height - 1; j++){
 					trenutni_niz[j] = this.Matrix[j][i];					 
 				}
 				smestaj_nizova = merge(trenutni_niz);
-				for(j=0; j <= this.grid_height - 1; j++){
+				for(j = 0; j <= this.grid_height - 1; j++){
 					this.Matrix[j][i] = smestaj_nizova[j];
-				};			
+				}			
 			} 						
 			break;
 		case "DOWN":
-		    for(i=0; i <= this.grid_width - 1; i++){
-				var trenutni_niz = [];
-				for(j=0; j <= this.grid_height - 1; j++){
-					trenutni_niz[j] = this.Matrix[j][i];					 
+		    for(i = 0; i <= this.grid_width - 1; i++){
+		    	trenutni_niz = [];
+				for(j = this.grid_height - 1; j >= 0 ; j--){
+					trenutni_niz[this.grid_height - 1 - j] = this.Matrix[j][i];					 
 				}
 				smestaj_nizova = merge(trenutni_niz);
-				for(j=0; j <= this.grid_height - 1; j++){
-					this.Matrix[j][i] = smestaj_nizova[j];
-				};			
+				for(j = this.grid_height - 1; j >= 0; j--){
+					this.Matrix[j][i] = smestaj_nizova[this.grid_height - 1 - j];
+				}			
 			}
 		    break;
 		case "LEFT":
+		    for(j = 0; j <= this.grid_height - 1; j++){
+		    	trenutni_niz = [];
+		    	for(i = 0; i <= this.grid_width - 1; i++){
+		    		trenutni_niz[i] = this.Matrix[j][i];
+		    	}
+		    	smestaj_nizova = merge(trenutni_niz);
+		    	for(i = 0; i <= this.grid_width - 1; i++){
+		    		this.Matrix[j][i] = smestaj_nizova[i];
+		    	}
+		    }
 			break;
 		case "RIGHT":
+		    for(j=0; j <= this.grid_height - 1; j++){
+		    	trenutni_niz = [];		    
+		    	for(i = this.grid_width - 1; i >= 0; i--){
+		    		trenutni_niz[this.grid_width - 1 - i] = this.Matrix[j][i];  
+		    	}
+		    	smestaj_nizova = merge(trenutni_niz);
+		    	for(i = this.grid_width - 1; i >= 0; i--){
+		    		this.Matrix[j][i] = smestaj_nizova[this.grid_width - 1 - i];
+		    	}
+		    }
 			break;
 		default:
 			return "Greska";
 		break;
 		}
+		if(poredbeni == this.Matrix)
+			return "Kraj jarane";
+		else this.newTile();
 	};
 	
 };
 
-/*
-document.getElementById("k1").innerHTML = matrica.k1;
-document.getElementById("k2").innerHTML = matrica.k2;
-document.getElementById("k3").innerHTML = matrica.k3;
-document.getElementById("k4").innerHTML = matrica.k4;
-document.getElementById("k5").innerHTML = matrica.k5;
-document.getElementById("k6").innerHTML = matrica.k6;
-document.getElementById("k7").innerHTML = matrica.k7;
-document.getElementById("k8").innerHTML = matrica.k8;
-document.getElementById("k9").innerHTML = matrica.k9;
-document.getElementById("k10").innerHTML = matrica.k10;
-document.getElementById("k11").innerHTML = matrica.k11;
-document.getElementById("k12").innerHTML = matrica.k12;
-document.getElementById("k13").innerHTML = matrica.k13;
-document.getElementById("k14").innerHTML = matrica.k14;
-document.getElementById("k15").innerHTML = matrica.k15;
-document.getElementById("k16").innerHTML = matrica.k16;
-*/
+

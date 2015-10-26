@@ -1,63 +1,53 @@
 /**
  * 
  */
-//document.getElementById("k1").innerHTML = 7;
-/*
-p = [1,1,0,2,0,3,4,4];
 
-document.getElementById("pol").innerHTML = JSON.parse(JSON.stringify(p));*/
-
-var p = {
-	0:[3,4,5],
-	1:[6,7,8],
-	2:[91,10,110],
-};
-
-var objekat = new twentyEightyFour(4,5);
+var objekat = new twentyEightyFour(4,4);
 
 objekat.Reset();
 
-/*
-objekat.setTile(3,3,0);
-objekat.setTile(2,2,0);
-objekat.setTile(0,0,0);
-*/
-
-objekat.setTile(0,0,0);
-objekat.setTile(0,1,0);
-objekat.setTile(0,2,0);
+objekat.setTile(0,0,1);
+objekat.setTile(0,1,2);
+objekat.setTile(0,2,3);
 objekat.setTile(0,3,0);
-objekat.setTile(1,0,4);
+objekat.setTile(1,0,5);
 objekat.setTile(1,1,5);
 objekat.setTile(1,2,6);
-objekat.setTile(1,3,7);
+objekat.setTile(1,3,0);
 objekat.setTile(2,0,8);
 objekat.setTile(2,1,9);
 objekat.setTile(2,2,10);
-objekat.setTile(2,3,11);
+objekat.setTile(2,3,0);
 objekat.setTile(3,0,12);
 objekat.setTile(3,1,13);
 objekat.setTile(3,2,14);
-objekat.setTile(3,3,15);
-objekat.setTile(4,0,16);
-objekat.setTile(4,1,17);
-objekat.setTile(4,2,18);
-objekat.setTile(4,3,19);
+objekat.setTile(3,3,0);
+objekat.setTile(4,0,15);
+objekat.setTile(4,1,16);
+objekat.setTile(4,2,17);
+objekat.setTile(4,3,0);
+
+document.getElementById("k1").innerHTML = 4;
 /*
-objekat.newTile();
-s=JSON.stringify(objekat.Matrix);
+document.getElementById("k2").innerHTML = objekat.Matrix[0][1];
+document.getElementById("k3").innerHTML = objekat.Matrix[0][2];
+document.getElementById("k4").innerHTML = objekat.Matrix[0][3];
+document.getElementById("k5").innerHTML = objekat.Matrix[1][0];
+document.getElementById("k6").innerHTML = objekat.Matrix[1][1];
+document.getElementById("k7").innerHTML = objekat.Matrix[1][2];
+document.getElementById("k8").innerHTML = objekat.Matrix[1][3];
+document.getElementById("k9").innerHTML = objekat.Matrix[2][0];
+document.getElementById("k10").innerHTML = objekat.Matrix[2][1];
+document.getElementById("k11").innerHTML = objekat.Matrix[2][2];
+document.getElementById("k12").innerHTML = objekat.Matrix[2][3];
+document.getElementById("k13").innerHTML = objekat.Matrix[3][0];
+document.getElementById("k14").innerHTML = objekat.Matrix[3][1];
+document.getElementById("k15").innerHTML = objekat.Matrix[3][2];
+document.getElementById("k16").innerHTML = objekat.Matrix[3][3];
 */
-
-//document.getElementById("pol1").innerHTML = objekat.startIndices()[0][0][0];
-
-document.getElementById("pol2").innerHTML = objekat.move("UP");
-document.getElementById("pol1").innerHTML = objekat.matrica();
+//objekat.newTile();
+//document.getElementById("pol1").innerHTML = objekat.move("RIGHT");
+//document.getElementById("pol2").innerHTML = objekat.matrica();
 
 
 
-/*
-p[3] = [33,44,55];
-p[4] = [];
-p[4][0] = 77;
-
-document.getElementById("pol").innerHTML = p[4][0];*/
