@@ -110,6 +110,7 @@ function twentyEightyFour(width, height){
 		var row = odabrani[0], col = odabrani[1], koji = dva_i_cetiri[Math.floor(Math.random() * dva_i_cetiri.length)];
 		this.setTile(row, col, koji);
 	};
+	
 	//sets tile to specified value
 	this.setTile = function(row, col, value){
 		this.Matrix[row][col] = value;

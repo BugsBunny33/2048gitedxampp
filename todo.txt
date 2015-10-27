@@ -1,0 +1,3 @@
+-Napraviti tako da moze da se bira izmedju nekoliko dimenzija
+-log in / log out score i slicno
+-responsive - da moze da se igra na telefonu

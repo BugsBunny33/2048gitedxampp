@@ -6,6 +6,7 @@ var objekat = new twentyEightyFour(4,4);
 
 objekat.Reset();
 
+/*
 objekat.setTile(0,0,1);
 objekat.setTile(0,1,2);
 objekat.setTile(0,2,3);
@@ -26,9 +27,9 @@ objekat.setTile(4,0,15);
 objekat.setTile(4,1,16);
 objekat.setTile(4,2,17);
 objekat.setTile(4,3,0);
+*/
 
-document.getElementById("k1").innerHTML = 4;
-/*
+document.getElementById("k1").innerHTML = objekat.Matrix[0][0];
 document.getElementById("k2").innerHTML = objekat.Matrix[0][1];
 document.getElementById("k3").innerHTML = objekat.Matrix[0][2];
 document.getElementById("k4").innerHTML = objekat.Matrix[0][3];
@@ -44,7 +45,7 @@ document.getElementById("k13").innerHTML = objekat.Matrix[3][0];
 document.getElementById("k14").innerHTML = objekat.Matrix[3][1];
 document.getElementById("k15").innerHTML = objekat.Matrix[3][2];
 document.getElementById("k16").innerHTML = objekat.Matrix[3][3];
-*/
+
 //objekat.newTile();
 //document.getElementById("pol1").innerHTML = objekat.move("RIGHT");
 //document.getElementById("pol2").innerHTML = objekat.matrica();
