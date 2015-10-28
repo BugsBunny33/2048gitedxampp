@@ -16,13 +16,15 @@ function merge(line){
 	//make copy of object that not has functions as property
 	var linija = JSON.parse(JSON.stringify(line));	
 	//make list without zeros
-	var i = 0;
-	while (i <= linija.length - 1){
+	var i = 0, k = 0;
+	while ((i <= linija.length - 1) && (k <= 2 * (linija.length - 1))){
 		if (linija[i] == 0){
 		    linija.splice(i, 1);
 			linija.push(0);
+			i--;
 		}		
 		i++;
+		k++
 	}	
 	//make a list with merged tiles
 	i = 0;
@@ -34,13 +36,15 @@ function merge(line){
 		i++;
 	}
 	//clear out zeros
-	i = 0;
-	while (i <= linija.length - 1){
+	i = 0, k = 0;
+	while ((i <= linija.length - 1) && (k <= 2 * (linija.length - 1))){
 		if (linija[i] == 0){
 		    linija.splice(i, 1);
 			linija.push(0);
+			i--;
 		}		
 		i++;
+		k++;
 	}
 	return linija;
 };
@@ -146,8 +150,8 @@ function twentyEightyFour(width, height){
 			} 						
 			break;
 		case "DOWN":
-		    for(i = 0; i <= this.grid_width - 1; i++){
-		    	trenutni_niz = [];
+			for(i = 0; i <= this.grid_width - 1; i++){
+				trenutni_niz = [];
 				for(j = this.grid_height - 1; j >= 0 ; j--){
 					trenutni_niz[this.grid_height - 1 - j] = this.Matrix[j][i];					 
 				}
@@ -156,37 +160,37 @@ function twentyEightyFour(width, height){
 					this.Matrix[j][i] = smestaj_nizova[this.grid_height - 1 - j];
 				}			
 			}
-		    break;
+			break;
 		case "LEFT":
-		    for(j = 0; j <= this.grid_height - 1; j++){
-		    	trenutni_niz = [];
-		    	for(i = 0; i <= this.grid_width - 1; i++){
-		    		trenutni_niz[i] = this.Matrix[j][i];
-		    	}
-		    	smestaj_nizova = merge(trenutni_niz);
-		    	for(i = 0; i <= this.grid_width - 1; i++){
-		    		this.Matrix[j][i] = smestaj_nizova[i];
-		    	}
-		    }
+			for(j = 0; j <= this.grid_height - 1; j++){
+				trenutni_niz = [];
+				for(i = 0; i <= this.grid_width - 1; i++){
+					trenutni_niz[i] = this.Matrix[j][i];
+				}
+				smestaj_nizova = merge(trenutni_niz);
+				for(i = 0; i <= this.grid_width - 1; i++){
+					this.Matrix[j][i] = smestaj_nizova[i];
+				}
+			}
 			break;
 		case "RIGHT":
-		    for(j=0; j <= this.grid_height - 1; j++){
-		    	trenutni_niz = [];		    
-		    	for(i = this.grid_width - 1; i >= 0; i--){
-		    		trenutni_niz[this.grid_width - 1 - i] = this.Matrix[j][i];  
-		    	}
-		    	smestaj_nizova = merge(trenutni_niz);
-		    	for(i = this.grid_width - 1; i >= 0; i--){
-		    		this.Matrix[j][i] = smestaj_nizova[this.grid_width - 1 - i];
-		    	}
-		    }
+			for(j=0; j <= this.grid_height - 1; j++){
+				trenutni_niz = [];		    
+				for(i = this.grid_width - 1; i >= 0; i--){
+					trenutni_niz[this.grid_width - 1 - i] = this.Matrix[j][i];  
+				}
+				smestaj_nizova = merge(trenutni_niz);
+				for(i = this.grid_width - 1; i >= 0; i--){
+					this.Matrix[j][i] = smestaj_nizova[this.grid_width - 1 - i];
+				}
+			}
 			break;
 		default:
-			return "Greska";
+			console.log("Greska u switchu this.move()");
 		break;
 		}
 		if(poredbeni == this.Matrix)
-			return "Kraj jarane";
+			console.log("Kraj jarane");
 		else this.newTile();
 	};
 	

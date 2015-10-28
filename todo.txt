@@ -1,3 +1,9 @@
--Napraviti tako da moze da se bira izmedju nekoliko dimenzija
+-kako otetit od browsera up, down, left
+-razlicite velicine cifara za razlicit broj cifara
+-Napraviti tako da moze da se bira izmedju nekoliko dimenzija minimum je 4x4 maksimum je 8x8
+-napraviti da se vidi proklizavanje
 -log in / log out score i slicno
 -responsive - da moze da se igra na telefonu
+
+Links:
+http://stackoverflow.com/questions/8916620/disable-arrow-key-scrolling-in-users-browser
