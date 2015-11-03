@@ -45,10 +45,48 @@ function prikaz(){
 	document.getElementById("k14").innerHTML = objekat.Matrix[3][1];
 	document.getElementById("k15").innerHTML = objekat.Matrix[3][2];
 	document.getElementById("k16").innerHTML = objekat.Matrix[3][3];
+	document.getElementById("score").innerHTML = objekat.racunajScore;
 }
 
 prikaz();
 
+function addListeners(){
+	if(window.addEventListener){
+		window.addEventListener("keyup",strelice,false);
+	}
+    function strelice(event){
+    	var key = event || window.event;
+    	
+    	switch(key.keyCode){
+    	  case 38:
+    		  key.preventDefault();
+    		  objekat.move("UP");
+    		  prikaz();
+    		  break;
+    	  case 40:
+    		  key.preventDefault();
+    		  objekat.move("DOWN");
+    		  prikaz();
+    		  break;
+    	  case 37:
+    		  key.preventDefault();
+    		  objekat.move("LEFT");
+    		  prikaz();
+    		  break;
+    	  case 39:
+    		  key.preventDefault();
+    		  objekat.move("RIGHT");
+    		  prikaz();
+    		  break;
+    	  default:
+    		  console.log("Greska u switchu funkcije onkeyup")
+    	
+    	}
+    }	
+}
+window.onload = addListeners();
+
+/*
 document.onkeyup = function(event){
 	
 	var key = event || window.event;
@@ -57,6 +95,7 @@ document.onkeyup = function(event){
 	  case 38:
 		  key.preventDefault();
 		  objekat.move("UP");
+		  prikaz();
 		  break;
 	  case 40:
 		  key.preventDefault();
@@ -78,10 +117,9 @@ document.onkeyup = function(event){
 	
 	}
 }
-
-
+*/
 //objekat.newTile();
-//document.getElementById("pol1").innerHTML = objekat.move("RIGHT");
+//document.getElementById("pol1").innerHTML = objekat.racunajScore;
 //document.getElementById("pol2").innerHTML = objekat.matrica();
 
 

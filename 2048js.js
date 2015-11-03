@@ -10,7 +10,7 @@ const OFFSETS = {
 	RIGHT:[0,-1],	
 };
 
-
+/*
 //Helper function that merges a single row or column in 2048
 function merge(line){
 	//make copy of object that not has functions as property
@@ -24,7 +24,7 @@ function merge(line){
 			i--;
 		}		
 		i++;
-		k++
+		k++;
 	}	
 	//make a list with merged tiles
 	i = 0;
@@ -48,27 +48,13 @@ function merge(line){
 	}
 	return linija;
 };
-
+*/
 
 function twentyEightyFour(width, height){
 	this.grid_height = height;
 	this.grid_width  = width;
 	this.Matrix = {};
 	
-	
-	this.startIndices = function(){
-		var UP = {}, DOWN = {}, LEFT = {}, RIGHT = {}, i;
-		for(i=0; i <= this.grid_width - 1; i++){
-			UP[i] = [0, i]; 
-			DOWN[i] = [this.grid_height - 1, i];	
-		};
-		for(i=0; i <= this.grid_height - 1; i++){
-			LEFT[i] = [i, 0]; 
-			RIGHT[i] = [i, this.grid_width - 1];	
-		};
-		//string = JSON.stringify(); 
-		return [UP, DOWN, LEFT, RIGHT];
-	};
 	
 	
 	this.Reset = function () {
@@ -79,8 +65,50 @@ function twentyEightyFour(width, height){
 				this.Matrix[i][j] = 0;
 			};
 		};
+		this.racunajScore = 0;
 		this.newTile();
 	};
+	
+	//Helper function that merges a single row or column in 2048
+	this.merge = function (line){		
+		//make copy of object that not has functions as property
+		var linija = JSON.parse(JSON.stringify(line));	
+		//make list without zeros
+		var i = 0, k = 0;
+		while ((i <= linija.length - 1) && (k <= 2 * (linija.length - 1))){
+			if (linija[i] == 0){
+			    linija.splice(i, 1);
+				linija.push(0);
+				i--;
+			}		
+			i++;
+			k++;
+		}	
+		//make a list with merged tiles
+		i = 0;
+		while (i < linija.length - 1){
+			if (linija[i] == linija[i+1]) {
+				linija[i] = linija[i] + linija[i+1];
+				this.racunajScore = this.racunajScore + linija[i];
+				linija[i+1] = 0;
+			}
+			i++;
+		}
+		//clear out zeros
+		i = 0, k = 0;
+		while ((i <= linija.length - 1) && (k <= 2 * (linija.length - 1))){
+			if (linija[i] == 0){
+			    linija.splice(i, 1);
+				linija.push(0);
+				i--;
+			}		
+			i++;
+			k++;
+		}
+		return linija;
+	};
+	
+	this.racunajScore = 0;  
 	 
 	
 	
@@ -143,7 +171,7 @@ function twentyEightyFour(width, height){
 				for(j = 0; j <= this.grid_height - 1; j++){
 					trenutni_niz[j] = this.Matrix[j][i];					 
 				}
-				smestaj_nizova = merge(trenutni_niz);
+				smestaj_nizova = this.merge(trenutni_niz);
 				for(j = 0; j <= this.grid_height - 1; j++){
 					this.Matrix[j][i] = smestaj_nizova[j];
 				}			
@@ -155,7 +183,7 @@ function twentyEightyFour(width, height){
 				for(j = this.grid_height - 1; j >= 0 ; j--){
 					trenutni_niz[this.grid_height - 1 - j] = this.Matrix[j][i];					 
 				}
-				smestaj_nizova = merge(trenutni_niz);
+				smestaj_nizova = this.merge(trenutni_niz);
 				for(j = this.grid_height - 1; j >= 0; j--){
 					this.Matrix[j][i] = smestaj_nizova[this.grid_height - 1 - j];
 				}			
@@ -167,7 +195,7 @@ function twentyEightyFour(width, height){
 				for(i = 0; i <= this.grid_width - 1; i++){
 					trenutni_niz[i] = this.Matrix[j][i];
 				}
-				smestaj_nizova = merge(trenutni_niz);
+				smestaj_nizova = this.merge(trenutni_niz);
 				for(i = 0; i <= this.grid_width - 1; i++){
 					this.Matrix[j][i] = smestaj_nizova[i];
 				}
@@ -179,7 +207,7 @@ function twentyEightyFour(width, height){
 				for(i = this.grid_width - 1; i >= 0; i--){
 					trenutni_niz[this.grid_width - 1 - i] = this.Matrix[j][i];  
 				}
-				smestaj_nizova = merge(trenutni_niz);
+				smestaj_nizova = this.merge(trenutni_niz);
 				for(i = this.grid_width - 1; i >= 0; i--){
 					this.Matrix[j][i] = smestaj_nizova[this.grid_width - 1 - i];
 				}

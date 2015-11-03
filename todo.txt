@@ -1,7 +1,9 @@
--kako otetit od browsera up, down, left
+OK-kako oteti od browsera up, down, left -> UZ POMOC addEventListener funkcije + preventDefault()
+-dodati score, new game i best score - 
 -razlicite velicine cifara za razlicit broj cifara
 -Napraviti tako da moze da se bira izmedju nekoliko dimenzija minimum je 4x4 maksimum je 8x8
 -napraviti da se vidi proklizavanje
+-dodati male animacije na scoreu, kada se probije best score i kada dodje do mrdzovanja
 -log in / log out score i slicno
 -responsive - da moze da se igra na telefonu
 

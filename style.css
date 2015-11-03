@@ -15,6 +15,33 @@ body {
 	border-radius: 10px;
 }
 
+.rezultati {
+	background:#ff80ff;
+	width:600px;
+	position:relative;
+	margin:auto;
+	
+}
+
+#score {
+	background:#00ff00;
+	width:60px;
+	height:30px;
+	position:relative;
+	margin:auto;
+	box-sizing:border-box;
+	text-align: center;
+}
+
+#best {
+	background:#00ff00;
+	width:60px;
+	height:30px;
+	box-sizing:border-box;
+	text-align: center;
+	
+}
+
 .red {	
 	
 	background: #ff0000;
